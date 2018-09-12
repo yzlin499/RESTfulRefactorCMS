@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd ">
+    <!--读取数据库配置文件-->
+    <context:property-placeholder location="classpath:springconfig/db.properties"/>
+
+    <!--打开事务行为，使用默认驱动器，默认代理使用springAOP-->
+    <tx:annotation-driven/>
+    <!--启用aop代理-->
+    <aop:aspectj-autoproxy/>
+
+    <!--定义事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+          p:dataSource-ref="dataSource"/>
+
+    <!--连接池配置-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          p:minPoolSize="${dataSource.minPoolSize}"
+          p:driverClass="${dataSource.driverClass}"
+          p:jdbcUrl="${dataSource.jdbcUrl}"
+          p:user="${dataSource.user}"
+          p:password="${dataSource.password}"
+          p:maxPoolSize="${dataSource.maxPoolSize}"/>
+
+    <!--将连接池参数注入数据源-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:mapperLocations="classpath:mybatismapper/*.xml"
+          p:configLocation="classpath:mybatis-config.xml"/>
+    <!-- 配置扫描器，将mybatis接口的实现加入到IOC容器中 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
+          p:basePackage="com.zhbit.cms.dao"
+          p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
+</beans>

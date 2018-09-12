@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhbit.cms.dao.CourseDAO">
+
+    <resultMap id="CourseInfoMap" type="CourseInfo">
+        <id column="CID" property="CourseID"/>
+        <result column="TID" property="CurTermID"/>
+        <result column="RID" property="RID"/>
+        <result column="CName" property="CourseName"/>
+        <result column="CClass" property="ClassName"/>
+        <result column="CTeacher" property="Teacher"/>
+        <result column="CWeek" property="Week"/>
+        <result column="CClWeek" property="ClassWeek"/>
+        <result column="CClTime" property="ClassTime"/>
+        <result column="CStuCount" property="StuCount"/>
+    </resultMap>
+
+    <select id="createCourse" parameterType="CourseInfo" resultType="int">
+        EXEC F_CreateCourse
+                @CourseName=#{CourseName},
+                @ClassName=#{ClassName},
+                @Week=#{Week},
+                @ClassWeek=#{ClassWeek},
+                @ClassTime=#{ClassTime},
+                @Teacher=#{Teacher},
+                @RID=#{RID},
+                @StuCount=#{StuCount},
+                @CurTermID=#{CurTermID}
+    </select>
+
+    <select id="selectCourse" parameterType="FakerMap" resultMap="CourseInfoMap">
+        SELECT * FROM CourseInfo WHERE 1=1
+        <foreach collection="oneMap" index="key" item="item" open="AND" separator="AND">
+            ${key} = #{item}
+        </foreach>
+    </select>
+
+    <select id="selectCourseByID" parameterType="int" resultMap="CourseInfoMap">
+        SELECT * FROM CourseInfo WHERE CID=#{id}
+    </select>
+
+    <delete id="deleteCourse" parameterType="int">
+        DELETE FROM CourseInfo WHERE CID=#{id}
+    </delete>
+</mapper>

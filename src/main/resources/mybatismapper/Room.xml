@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhbit.cms.dao.RoomDAO">
+
+    <resultMap id="RoomInfoMap" type="RoomInfo">
+        <id column="RID" property="RoomID"/>
+        <result column="RName" property="RoomName"/>
+        <result column="BID" property="BuildingID"/>
+        <result column="RMaxCount" property="MaxStudentCount"/>
+        <result column="RUseFor" property="UseFor"/>
+    </resultMap>
+
+    <select id="selectRoom" parameterType="FakerMap" resultMap="RoomInfoMap">
+        SELECT * FROM RoomInfo WHERE 1=1
+        <foreach collection="oneMap" index="key" item="item" open="AND" separator="AND">
+            ${key} = #{item}
+        </foreach>
+    </select>
+
+    <select id="selectRoomByID" parameterType="int" resultMap="RoomInfoMap">
+        SELECT * FROM RoomInfo WHERE RID=#{id}
+    </select>
+    
+    <select id="createRoom" parameterType="RoomInfo" resultType="int">
+        EXEC  F_CreateRoom @RoomName=#{RoomName},@BuildingName=#{BuildingName},@MaxStudentCount=#{MaxStudentCount}
+        <if test="UseFor!=null">,@UseFor=#{UseFor}</if>
+    </select>
+
+    <select id="updateRoom" parameterType="RoomInfo">
+        EXEC F_ModifyRoom @RID=#{RoomID},@RoomName=#{RoomName},@BuildingName=#{BuildingName},
+                          @MaxStudentCount=#{MaxStudentCount},@UseFor=#{UseFor}
+    </select>
+
+    <delete id="DeleteRoom" parameterType="int">
+        DELETE FROM RoomInfo WHERE RID=#{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhbit.cms.dao.PersonDAO">
+
+    <resultMap id="PersonInfoMap" type="PersonInfo">
+        <id column="PID" property="PersonID"/>
+        <result column="PGroup" property="PersonGroup"/>
+        <result column="PUserName" property="UserName"/>
+        <result column="PPassword" property="PassWord"/>
+        <result column="PCtrlLevel" property="PersonCtrlLevel"/>
+        <result column="PEmail" property="EMail"/>
+        <result column="PName" property="Name"/>
+        <result column="PTel" property="TelPhone"/>
+        <result column="PClass" property="ClassName"/>
+        <result column="PSex" property="sex"/>
+    </resultMap>
+
+    <select id="selectBuilding" parameterType="FakerMap" resultMap="BuildingInfoMap">
+        SELECT * FROM PersonInfo WHERE 1=1
+        <foreach collection="oneMap" index="key" item="item" open="AND" separator="AND">
+            ${key} = #{item}
+        </foreach>
+    </select>
+
+    <select id="selectBuildingByID" parameterType="int" resultMap="BuildingInfoMap">
+        SELECT * FROM BuildingInfo WHERE BID=#{id}
+    </select>
+
+    <insert id="createBuilding" keyProperty="BuildingID" useGeneratedKeys="true" parameterType="BuildingInfo">
+        INSERT INTO BuildingInfo (BName, BUUID) VALUES (#{BuildingName},#{BuildingUUID})
+    </insert>
+
+    <update id="updateBuilding" parameterType="BuildingInfo">
+        UPDATE BuildingInfo
+        <set>
+            <if test="BuildingName!=null">BName=#{BuildingName},</if>
+            <if test="BuildingUUID!=null">BUUID=#{BuildingUUID}</if>
+        </set>
+        WHERE BID=#{BuildingID}
+    </update>
+
+    <delete id="deleteBuilding" parameterType="int">
+        DELETE FROM BuildingInfo WHERE BID=#{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="CMS2_db@10.0.138.172">
+  <database-model serializer="dbm" rdbms="MSSQL" format-version="4.9">
+    <root id="1">
+      <ServerVersion>14.0.100</ServerVersion>
+      <ServerType>standalone</ServerType>
+    </root>
+    <database id="2" parent="1" name="master">
+      <ObjectId>1</ObjectId>
+      <Current>1</Current>
+    </database>
+    <database id="3" parent="1" name="tempdb">
+      <ObjectId>2</ObjectId>
+    </database>
+    <database id="4" parent="1" name="model">
+      <ObjectId>3</ObjectId>
+    </database>
+    <database id="5" parent="1" name="msdb">
+      <ObjectId>4</ObjectId>
+    </database>
+    <database id="6" parent="1" name="CMS2_db">
+      <ObjectId>5</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="7" parent="1" name="cms">
+      <ObjectId>6</ObjectId>
+    </database>
+    <schema id="8" parent="6" name="dbo">
+      <ObjectId>1</ObjectId>
+      <IntrospectionTimestamp>2018-09-12.05:38:34.837</IntrospectionTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="9" parent="6" name="guest">
+      <ObjectId>2</ObjectId>
+    </schema>
+    <schema id="10" parent="6" name="INFORMATION_SCHEMA">
+      <ObjectId>3</ObjectId>
+    </schema>
+    <schema id="11" parent="6" name="sys">
+      <ObjectId>4</ObjectId>
+    </schema>
+    <schema id="12" parent="6" name="db_owner">
+      <ObjectId>16384</ObjectId>
+    </schema>
+    <schema id="13" parent="6" name="db_accessadmin">
+      <ObjectId>16385</ObjectId>
+    </schema>
+    <schema id="14" parent="6" name="db_securityadmin">
+      <ObjectId>16386</ObjectId>
+    </schema>
+    <schema id="15" parent="6" name="db_ddladmin">
+      <ObjectId>16387</ObjectId>
+    </schema>
+    <schema id="16" parent="6" name="db_backupoperator">
+      <ObjectId>16389</ObjectId>
+    </schema>
+    <schema id="17" parent="6" name="db_datareader">
+      <ObjectId>16390</ObjectId>
+    </schema>
+    <schema id="18" parent="6" name="db_datawriter">
+      <ObjectId>16391</ObjectId>
+    </schema>
+    <schema id="19" parent="6" name="db_denydatareader">
+      <ObjectId>16392</ObjectId>
+    </schema>
+    <schema id="20" parent="6" name="db_denydatawriter">
+      <ObjectId>16393</ObjectId>
+    </schema>
+    <table id="21" parent="8" name="BindInfo">
+      <ObjectId>1253579504</ObjectId>
+      <CreatedTimestamp>2018-05-27.20:29:11.880</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.880</ModifiedTimestamp>
+    </table>
+    <table id="22" parent="8" name="BuildingInfo">
+      <ObjectId>1077578877</ObjectId>
+      <CreatedTimestamp>2018-05-27.20:29:11.867</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.867</ModifiedTimestamp>
+    </table>
+    <table id="23" parent="8" name="CheckInfo">
+      <ObjectId>1189579276</ObjectId>
+      <CreatedTimestamp>2018-05-27.20:29:11.877</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.877</ModifiedTimestamp>
+    </table>
+    <table id="24" parent="8" name="CourseInfo">
+      <ObjectId>901578250</ObjectId>
+      <CreatedTimestamp>2018-05-27.20:29:11.843</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.843</ModifiedTimestamp>
+    </table>
+    <table id="25" parent="8" name="DutyInfo">
+      <ObjectId>1125579048</ObjectId>
+      <CreatedTimestamp>2018-05-27.20:29:11.870</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.870</ModifiedTimestamp>
+    </table>
+    <table id="26" parent="8" name="GlobalInfo">
+      <ObjectId>1269579561</ObjectId>
+      <CreatedTimestamp>2018-05-27.20:29:11.883</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.883</ModifiedTimestamp>
+    </table>
+    <table id="27" parent="8" name="PersonInfo">
+      <ObjectId>1029578706</ObjectId>
+      <CreatedTimestamp>2018-05-27.20:29:11.863</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.863</ModifiedTimestamp>
+    </table>
+    <table id="28" parent="8" name="RoomInfo">
+      <ObjectId>981578535</ObjectId>
+      <CreatedTimestamp>2018-05-27.20:29:11.857</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.857</ModifiedTimestamp>
+    </table>
+    <table id="29" parent="8" name="StuCourseInfo">
+      <ObjectId>1157579162</ObjectId>
+      <CreatedTimestamp>2018-05-27.20:29:11.873</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.873</ModifiedTimestamp>
+    </table>
+    <table id="30" parent="8" name="TermInfo">
+      <ObjectId>933578364</ObjectId>
+      <CreatedTimestamp>2018-05-27.20:29:11.853</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.853</ModifiedTimestamp>
+    </table>
+    <table id="31" parent="8" name="VerifyCodeInfo">
+      <ObjectId>1221579390</ObjectId>
+      <CreatedTimestamp>2018-05-27.20:29:11.880</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.880</ModifiedTimestamp>
+    </table>
+    <routine id="32" parent="8" name="F_BindUser">
+      <ObjectId>1490104349</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:21.090</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:21.090</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="33" parent="8" name="F_CheckIn">
+      <ObjectId>1554104577</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:21.140</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:21.140</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="34" parent="8" name="F_CreateCourse">
+      <ObjectId>1346103836</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:20.893</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:20.893</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="35" parent="8" name="F_CreateRoom">
+      <ObjectId>1410104064</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:20.987</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:20.987</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="36" parent="8" name="F_CreateTerm">
+      <ObjectId>1394104007</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:20.977</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:20.977</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="37" parent="8" name="F_FilterCourse">
+      <ObjectId>1442104178</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:21.010</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:21.010</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="38" parent="8" name="F_FilterRoom">
+      <ObjectId>1458104235</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:21.047</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:21.047</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="39" parent="8" name="F_GenerateVerifyCode">
+      <ObjectId>1538104520</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:21.127</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:21.127</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="40" parent="8" name="F_LoginUser">
+      <ObjectId>1506104406</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:21.103</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:21.103</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="41" parent="8" name="F_LoginUser_s">
+      <ObjectId>1522104463</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:21.110</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:21.110</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="42" parent="8" name="F_ModifyCourse">
+      <ObjectId>1362103893</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:20.903</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:20.903</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="43" parent="8" name="F_ModifyRoom">
+      <ObjectId>1426104121</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:20.997</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:20.997</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="44" parent="8" name="F_QueryRoom">
+      <ObjectId>1474104292</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:21.070</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:21.070</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="45" parent="8" name="F_Register">
+      <ObjectId>1378103950</ObjectId>
+      <CreatedTimestamp>2018-05-27.21:10:20.917</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.21:10:20.917</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <column id="46" parent="21" name="PID">
+      <Position>1</Position>
+      <DataType>smallint|0s</DataType>
+    </column>
+    <column id="47" parent="21" name="BDType">
+      <Position>2</Position>
+      <DataType>tinyint|0s</DataType>
+    </column>
+    <column id="48" parent="21" name="BDValue">
+      <Position>3</Position>
+      <DataType>nvarchar(50 char)|0s</DataType>
+    </column>
+    <column id="49" parent="22" name="BID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>tinyint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="22" name="BName">
+      <Position>2</Position>
+      <DataType>nvarchar(20 char)|0s</DataType>
+    </column>
+    <column id="51" parent="22" name="BUUID">
+      <Position>3</Position>
+      <DataType>nvarchar(32 char)|0s</DataType>
+    </column>
+    <index id="52" parent="22" name="PK__Building__C6DE0D21DAB9ECEF">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>BID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <index id="53" parent="22" name="UQ__Building__3FF350827BBADEFB">
+      <Position>2</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>BName</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="54" parent="22" name="PK__Building__C6DE0D21DAB9ECEF">
+      <ObjectId>1093578934</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.870</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.870</ModifiedTimestamp>
+      <ColNames>BID</ColNames>
+      <UnderlyingIndexName>PK__Building__C6DE0D21DAB9ECEF</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="55" parent="22" name="UQ__Building__3FF350827BBADEFB">
+      <ObjectId>1109578991</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.870</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.870</ModifiedTimestamp>
+      <ColNames>BName</ColNames>
+      <UnderlyingIndexName>UQ__Building__3FF350827BBADEFB</UnderlyingIndexName>
+    </key>
+    <column id="56" parent="23" name="CKID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="23" name="PID">
+      <Position>2</Position>
+      <DataType>smallint|0s</DataType>
+    </column>
+    <column id="58" parent="23" name="DDate">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+    </column>
+    <column id="59" parent="23" name="DTimeON">
+      <Position>4</Position>
+      <DataType>time|0s</DataType>
+    </column>
+    <column id="60" parent="23" name="DTimeOFF">
+      <Position>5</Position>
+      <DataType>time|0s</DataType>
+    </column>
+    <column id="61" parent="23" name="BID">
+      <Position>6</Position>
+      <DataType>tinyint|0s</DataType>
+    </column>
+    <column id="62" parent="23" name="DFlag">
+      <Position>7</Position>
+      <DataType>tinyint|0s</DataType>
+    </column>
+    <index id="63" parent="23" name="PK__CheckInf__F40099DCC89D0A03">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CKID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="64" parent="23" name="PK__CheckInf__F40099DCC89D0A03">
+      <ObjectId>1205579333</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.877</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.877</ModifiedTimestamp>
+      <ColNames>CKID</ColNames>
+      <UnderlyingIndexName>PK__CheckInf__F40099DCC89D0A03</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="65" parent="24" name="CID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="24" name="TID">
+      <Position>2</Position>
+      <DataType>tinyint|0s</DataType>
+    </column>
+    <column id="67" parent="24" name="RID">
+      <Position>3</Position>
+      <DataType>smallint|0s</DataType>
+    </column>
+    <column id="68" parent="24" name="CName">
+      <Position>4</Position>
+      <DataType>nvarchar(30 char)|0s</DataType>
+    </column>
+    <column id="69" parent="24" name="CClass">
+      <Position>5</Position>
+      <DataType>nvarchar(30 char)|0s</DataType>
+    </column>
+    <column id="70" parent="24" name="CTeacher">
+      <Position>6</Position>
+      <DataType>nvarchar(20 char)|0s</DataType>
+    </column>
+    <column id="71" parent="24" name="CWeek">
+      <Position>7</Position>
+      <DataType>tinyint|0s</DataType>
+    </column>
+    <column id="72" parent="24" name="CClWeek">
+      <Position>8</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="73" parent="24" name="CClTime">
+      <Position>9</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="74" parent="24" name="CStuCount">
+      <Position>10</Position>
+      <DataType>smallint|0s</DataType>
+    </column>
+    <index id="75" parent="24" name="PK__CourseIn__C1F8DC5977ED3109">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="76" parent="24" name="PK__CourseIn__C1F8DC5977ED3109">
+      <ObjectId>917578307</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.847</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.847</ModifiedTimestamp>
+      <ColNames>CID</ColNames>
+      <UnderlyingIndexName>PK__CourseIn__C1F8DC5977ED3109</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="77" parent="25" name="DID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="25" name="PID">
+      <Position>2</Position>
+      <DataType>smallint|0s</DataType>
+    </column>
+    <column id="79" parent="25" name="BID">
+      <Position>3</Position>
+      <DataType>tinyint|0s</DataType>
+    </column>
+    <column id="80" parent="25" name="DWeek">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="81" parent="25" name="DClWeek">
+      <Position>5</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="82" parent="25" name="DClTime">
+      <Position>6</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <index id="83" parent="25" name="PK__DutyInfo__C0365630C9A96752">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>DID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="84" parent="25" name="PK__DutyInfo__C0365630C9A96752">
+      <ObjectId>1141579105</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.873</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.873</ModifiedTimestamp>
+      <ColNames>DID</ColNames>
+      <UnderlyingIndexName>PK__DutyInfo__C0365630C9A96752</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="85" parent="26" name="GName">
+      <Position>1</Position>
+      <DataType>nvarchar(20 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="86" parent="26" name="GValue">
+      <Position>2</Position>
+      <DataType>nvarchar(20 char)|0s</DataType>
+    </column>
+    <index id="87" parent="26" name="PK__GlobalIn__6388BCC561A1EF51">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>GName</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="88" parent="26" name="PK__GlobalIn__6388BCC561A1EF51">
+      <ObjectId>1285579618</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.887</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.887</ModifiedTimestamp>
+      <ColNames>GName</ColNames>
+      <UnderlyingIndexName>PK__GlobalIn__6388BCC561A1EF51</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="89" parent="27" name="PID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>smallint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="27" name="PGroup">
+      <Position>2</Position>
+      <DataType>tinyint|0s</DataType>
+    </column>
+    <column id="91" parent="27" name="PUserName">
+      <Position>3</Position>
+      <DataType>nvarchar(20 char)|0s</DataType>
+    </column>
+    <column id="92" parent="27" name="PPassword">
+      <Position>4</Position>
+      <DataType>nvarchar(32 char)|0s</DataType>
+    </column>
+    <column id="93" parent="27" name="PCtrlLevel">
+      <Position>5</Position>
+      <DataType>tinyint|0s</DataType>
+    </column>
+    <column id="94" parent="27" name="PEmail">
+      <Position>6</Position>
+      <DataType>nvarchar(50 char)|0s</DataType>
+    </column>
+    <column id="95" parent="27" name="PName">
+      <Position>7</Position>
+      <DataType>nvarchar(20 char)|0s</DataType>
+    </column>
+    <column id="96" parent="27" name="PTel">
+      <Position>8</Position>
+      <DataType>nvarchar(20 char)|0s</DataType>
+    </column>
+    <column id="97" parent="27" name="PClass">
+      <Position>9</Position>
+      <DataType>nvarchar(50 char)|0s</DataType>
+    </column>
+    <column id="98" parent="27" name="PSex">
+      <Position>10</Position>
+      <DataType>bit|0s</DataType>
+    </column>
+    <index id="99" parent="27" name="PK__PersonIn__C5775520B9940C22">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>PID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <index id="100" parent="27" name="UQ__PersonIn__2CBF59A91811F97F">
+      <Position>2</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>PUserName</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="101" parent="27" name="PK__PersonIn__C5775520B9940C22">
+      <ObjectId>1045578763</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.863</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.863</ModifiedTimestamp>
+      <ColNames>PID</ColNames>
+      <UnderlyingIndexName>PK__PersonIn__C5775520B9940C22</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="102" parent="27" name="UQ__PersonIn__2CBF59A91811F97F">
+      <ObjectId>1061578820</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.867</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.867</ModifiedTimestamp>
+      <ColNames>PUserName</ColNames>
+      <UnderlyingIndexName>UQ__PersonIn__2CBF59A91811F97F</UnderlyingIndexName>
+    </key>
+    <column id="103" parent="28" name="RID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>smallint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="104" parent="28" name="RName">
+      <Position>2</Position>
+      <DataType>nvarchar(10 char)|0s</DataType>
+    </column>
+    <column id="105" parent="28" name="BID">
+      <Position>3</Position>
+      <DataType>tinyint|0s</DataType>
+    </column>
+    <column id="106" parent="28" name="RMaxCount">
+      <Position>4</Position>
+      <DataType>smallint|0s</DataType>
+    </column>
+    <column id="107" parent="28" name="RUseFor">
+      <Position>5</Position>
+      <DataType>nvarchar(10 char)|0s</DataType>
+    </column>
+    <index id="108" parent="28" name="PK__RoomInfo__CAFF4132484CC6FE">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <index id="109" parent="28" name="UQ__RoomInfo__754413987F9E0B64">
+      <Position>2</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RName</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="110" parent="28" name="PK__RoomInfo__CAFF4132484CC6FE">
+      <ObjectId>997578592</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.860</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.860</ModifiedTimestamp>
+      <ColNames>RID</ColNames>
+      <UnderlyingIndexName>PK__RoomInfo__CAFF4132484CC6FE</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="111" parent="28" name="UQ__RoomInfo__754413987F9E0B64">
+      <ObjectId>1013578649</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.860</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.860</ModifiedTimestamp>
+      <ColNames>RName</ColNames>
+      <UnderlyingIndexName>UQ__RoomInfo__754413987F9E0B64</UnderlyingIndexName>
+    </key>
+    <column id="112" parent="29" name="SCID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="113" parent="29" name="TID">
+      <Position>2</Position>
+      <DataType>tinyint|0s</DataType>
+    </column>
+    <column id="114" parent="29" name="PID">
+      <Position>3</Position>
+      <DataType>smallint|0s</DataType>
+    </column>
+    <column id="115" parent="29" name="PWeek">
+      <Position>4</Position>
+      <DataType>tinyint|0s</DataType>
+    </column>
+    <column id="116" parent="29" name="PClWeek">
+      <Position>5</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="117" parent="29" name="PClTime">
+      <Position>6</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <index id="118" parent="29" name="PK__StuCours__F7FE93ACB3546C09">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>SCID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="119" parent="29" name="PK__StuCours__F7FE93ACB3546C09">
+      <ObjectId>1173579219</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.877</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.877</ModifiedTimestamp>
+      <ColNames>SCID</ColNames>
+      <UnderlyingIndexName>PK__StuCours__F7FE93ACB3546C09</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="120" parent="30" name="TID">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>tinyint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="121" parent="30" name="TName">
+      <Position>2</Position>
+      <DataType>nvarchar(20 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="122" parent="30" name="TStartDate">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+    </column>
+    <index id="123" parent="30" name="PK__TermInfo__C456D729DD551958">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>TID</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <index id="124" parent="30" name="UQ__TermInfo__8E5169F51BD3A9D0">
+      <Position>2</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>TName</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="125" parent="30" name="PK__TermInfo__C456D729DD551958">
+      <ObjectId>949578421</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.853</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.853</ModifiedTimestamp>
+      <ColNames>TID</ColNames>
+      <UnderlyingIndexName>PK__TermInfo__C456D729DD551958</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="126" parent="30" name="UQ__TermInfo__8E5169F51BD3A9D0">
+      <ObjectId>965578478</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.857</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.857</ModifiedTimestamp>
+      <ColNames>TName</ColNames>
+      <UnderlyingIndexName>UQ__TermInfo__8E5169F51BD3A9D0</UnderlyingIndexName>
+    </key>
+    <column id="127" parent="31" name="PID">
+      <Position>1</Position>
+      <DataType>smallint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="128" parent="31" name="VType">
+      <Position>2</Position>
+      <DataType>tinyint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="129" parent="31" name="VCode">
+      <Position>3</Position>
+      <DataType>varchar(30 char)|0s</DataType>
+    </column>
+    <column id="130" parent="31" name="VExpire">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <index id="131" parent="31" name="PK__VerifyCo__F6B8EA300856D978">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>PID
+VType</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="132" parent="31" name="PK__VerifyCo__F6B8EA300856D978">
+      <ObjectId>1237579447</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-27.20:29:11.880</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-27.20:29:11.880</ModifiedTimestamp>
+      <ColNames>PID
+VType</ColNames>
+      <UnderlyingIndexName>PK__VerifyCo__F6B8EA300856D978</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <argument id="133" parent="32" name="@UserName">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="134" parent="32" name="@BindType">
+      <Position>2</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="135" parent="32" name="@BindValue">
+      <Position>3</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="136" parent="32" name="@PGroup">
+      <Position>4</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="137" parent="33" name="@VerifyCode">
+      <Position>1</Position>
+      <DataType>varchar(4 char)|0s</DataType>
+    </argument>
+    <argument id="138" parent="33" name="@BuildingFlag">
+      <Position>2</Position>
+      <DataType>varchar(32 char)|0s</DataType>
+    </argument>
+    <argument id="139" parent="34" name="@CourseName">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="140" parent="34" name="@ClassName">
+      <Position>2</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="141" parent="34" name="@Week">
+      <Position>3</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="142" parent="34" name="@ClassWeek">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="143" parent="34" name="@ClassTime">
+      <Position>5</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="144" parent="34" name="@Teacher">
+      <Position>6</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="145" parent="34" name="@RID">
+      <Position>7</Position>
+      <DataType>smallint|0s</DataType>
+    </argument>
+    <argument id="146" parent="34" name="@StuCount">
+      <Position>8</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="147" parent="34" name="@CurTermID">
+      <Position>9</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="148" parent="35" name="@RoomName">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="149" parent="35" name="@BuildingName">
+      <Position>2</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="150" parent="35" name="@MaxStudentCount">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="151" parent="35" name="@UseFor">
+      <Position>4</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="152" parent="36" name="@TermName">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="153" parent="36" name="@StartDate">
+      <Position>2</Position>
+      <DataType>date|0s</DataType>
+    </argument>
+    <argument id="154" parent="37" name="@Week">
+      <Position>1</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="155" parent="37" name="@ClassWeek">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="156" parent="37" name="@ClassTime">
+      <Position>3</Position>
+      <DataType>smallint|0s</DataType>
+    </argument>
+    <argument id="157" parent="37" name="@RID">
+      <Position>4</Position>
+      <DataType>smallint|0s</DataType>
+    </argument>
+    <argument id="158" parent="37" name="@TermID">
+      <Position>5</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="159" parent="38" name="@FindUsing">
+      <Position>1</Position>
+      <DataType>bit|0s</DataType>
+    </argument>
+    <argument id="160" parent="38" name="@Week">
+      <Position>2</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="161" parent="38" name="@ClassWeek">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="162" parent="38" name="@ClassTime">
+      <Position>4</Position>
+      <DataType>smallint|0s</DataType>
+    </argument>
+    <argument id="163" parent="38" name="@TermID">
+      <Position>5</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="164" parent="38" name="@BuildingName">
+      <Position>6</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="165" parent="39" name="@WechatID">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="166" parent="40" name="@UserName">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="167" parent="40" name="@Password">
+      <Position>2</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="168" parent="40" name="@PGroup">
+      <Position>3</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="169" parent="41" name="@BindType">
+      <Position>1</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="170" parent="41" name="@BindValue">
+      <Position>2</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="171" parent="42" name="@CID">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="172" parent="42" name="@CourseName">
+      <Position>2</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="173" parent="42" name="@ClassName">
+      <Position>3</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="174" parent="42" name="@Week">
+      <Position>4</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="175" parent="42" name="@ClassWeek">
+      <Position>5</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="176" parent="42" name="@ClassTime">
+      <Position>6</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="177" parent="42" name="@Teacher">
+      <Position>7</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="178" parent="42" name="@RID">
+      <Position>8</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="179" parent="42" name="@StuCount">
+      <Position>9</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="180" parent="42" name="@CurTermID">
+      <Position>10</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="181" parent="43" name="@RID">
+      <Position>1</Position>
+      <DataType>smallint|0s</DataType>
+    </argument>
+    <argument id="182" parent="43" name="@RoomName">
+      <Position>2</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="183" parent="43" name="@BuildingName">
+      <Position>3</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="184" parent="43" name="@MaxStudentCount">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="185" parent="43" name="@UseFor">
+      <Position>5</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="186" parent="44" name="@FindUsing">
+      <Position>1</Position>
+      <DataType>bit|0s</DataType>
+    </argument>
+    <argument id="187" parent="44" name="@QueryWeek">
+      <Position>2</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="188" parent="44" name="@QueryClassWeek">
+      <Position>3</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="189" parent="44" name="@TermID">
+      <Position>4</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="190" parent="44" name="@BuildingName">
+      <Position>5</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="191" parent="45" name="@UserName">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="192" parent="45" name="@Password">
+      <Position>2</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="193" parent="45" name="@PGroup">
+      <Position>3</Position>
+      <DataType>tinyint|0s</DataType>
+    </argument>
+    <argument id="194" parent="45" name="@Name">
+      <Position>4</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="195" parent="45" name="@EMail">
+      <Position>5</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="196" parent="45" name="@ClassName">
+      <Position>6</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="197" parent="45" name="@TelPhone">
+      <Position>7</Position>
+      <DataType>sysname|0s</DataType>
+    </argument>
+    <argument id="198" parent="45" name="@Sex">
+      <Position>8</Position>
+      <DataType>bit|0s</DataType>
+    </argument>
+  </database-model>
+</dataSource>

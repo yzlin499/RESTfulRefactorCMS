@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="springconfig"/>
+    <import resource="classpath:springconfig/*.xml"/>
+
+    <context:component-scan base-package="com.zhbit.cms.service"/>
+    <context:component-scan base-package="com.zhbit.cms.servlet"/>
+
+    <!--<mvc:resources mapping="/favicon.ico" location="/WEB-INF/resources/icon/"/>-->
+    <!--<mvc:resources mapping="/javascript/**" location="/WEB-INF/resources/javascript/"/>-->
+    <!--<mvc:resources mapping="/images/**" location="/WEB-INF/resources/images/"/>-->
+    <!--<mvc:resources mapping="/stylesheets/**" location="/WEB-INF/resources/stylesheets/"/>-->
+    <!--<mvc:resources mapping="/icon/**" location="/WEB-INF/resources/icon/"/>-->
+    <!--<mvc:resources mapping="/fonts/**" location="/WEB-INF/resources/fonts/"/>-->
+
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean id="fastJsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
+
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+</beans>

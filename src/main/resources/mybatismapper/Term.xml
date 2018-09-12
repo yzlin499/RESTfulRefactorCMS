@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhbit.cms.dao.TermDAO">
+
+    <resultMap id="TermInfoMap" type="TermInfo">
+        <id column="TID" property="TermID"/>
+        <result column="TName" property="TermName"/>
+        <result column="TStartDate" property="StartDate"/>
+    </resultMap>
+
+    <select id="createTerm" parameterType="TermInfo" resultType="int">
+        EXEC F_CreateTerm @TermName=#{TermName}
+        <if test="StartDate!=null">,@StartDate=#{StartDate}</if>
+    </select>
+
+    <update id="updateTerm" parameterType="TermInfo">
+        UPDATE TermInfo
+        <set>
+            <if test="TermID!=-1">TID=#{TermID},</if>
+            <if test="TermName!=null">TName=#{TermName},</if>
+            <if test="StartDate!=null">TStartDate=#{StartDate}</if>
+        </set>
+        WHERE TID=#{TermID}
+    </update>
+
+    <delete id="deleteTerm" parameterType="int">
+        DELETE FROM TermInfo WHERE TID=#{id}
+    </delete>
+
+    <select id="selectTerm" parameterType="FakerMap" resultMap="TermInfoMap">
+        SELECT * FROM TermInfo WHERE 1=1
+        <foreach collection="oneMap" index="key" item="item" open="AND" separator="AND">
+            ${key} = #{item}
+        </foreach>
+    </select>
+
+    <select id="selectTermByID" parameterType="int" resultMap="TermInfoMap">
+        SELECT * FROM TermInfo WHERE TID=#{id}
+    </select>
+
+    <!--<select id="currentTerm" resultType="date">-->
+        <!--SELECT T.TStartDate-->
+        <!--FROM dbo.GlobalInfo AS G,dbo.TermInfo AS T-->
+        <!--WHERE GValue=T.TID-->
+    <!--</select>-->
+
+</mapper>
