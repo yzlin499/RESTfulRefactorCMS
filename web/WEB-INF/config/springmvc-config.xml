@@ -10,6 +10,7 @@
 
     <context:component-scan base-package="com.zhbit.cms.service"/>
     <context:component-scan base-package="com.zhbit.cms.servlet"/>
+    <context:component-scan base-package="com.zhbit.cms.aop"/>
 
     <!--<mvc:resources mapping="/favicon.ico" location="/WEB-INF/resources/icon/"/>-->
     <!--<mvc:resources mapping="/javascript/**" location="/WEB-INF/resources/javascript/"/>-->

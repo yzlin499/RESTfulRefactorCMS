@@ -6,7 +6,7 @@
     <resultMap id="CourseInfoMap" type="CourseInfo">
         <id column="CID" property="CourseID"/>
         <result column="TID" property="CurTermID"/>
-        <result column="RID" property="RID"/>
+        <result column="RID" property="RoomID"/>
         <result column="CName" property="CourseName"/>
         <result column="CClass" property="ClassName"/>
         <result column="CTeacher" property="Teacher"/>
@@ -16,7 +16,7 @@
         <result column="CStuCount" property="StuCount"/>
     </resultMap>
 
-    <select id="createCourse" parameterType="CourseInfo" resultType="int">
+    <select id="create" parameterType="CourseInfo" resultType="int">
         EXEC F_CreateCourse
                 @CourseName=#{CourseName},
                 @ClassName=#{ClassName},
@@ -24,23 +24,37 @@
                 @ClassWeek=#{ClassWeek},
                 @ClassTime=#{ClassTime},
                 @Teacher=#{Teacher},
-                @RID=#{RID},
+                @RID = #{RoomID},
                 @StuCount=#{StuCount},
                 @CurTermID=#{CurTermID}
     </select>
 
-    <select id="selectCourse" parameterType="FakerMap" resultMap="CourseInfoMap">
+    <select id="update" parameterType="CourseInfo">
+        EXEC F_ModifyCourse
+                @CID = #{CourseID},
+                @CourseName = #{CourseName},
+                @ClassName = #{ClassName},
+                @Week = #{Week},
+                @ClassWeek = #{ClassWeek},
+                @ClassTime = #{ClassTime},
+                @Teacher = #{Teacher},
+                @RID = #{RoomID},
+                @StuCount = #{StuCount},
+                @CurTermID = #{CurTermID}
+    </select>
+
+    <select id="select" parameterType="FakerMap" resultMap="CourseInfoMap">
         SELECT * FROM CourseInfo WHERE 1=1
         <foreach collection="oneMap" index="key" item="item" open="AND" separator="AND">
             ${key} = #{item}
         </foreach>
     </select>
 
-    <select id="selectCourseByID" parameterType="int" resultMap="CourseInfoMap">
+    <select id="selectByID" parameterType="int" resultMap="CourseInfoMap">
         SELECT * FROM CourseInfo WHERE CID=#{id}
     </select>
 
-    <delete id="deleteCourse" parameterType="int">
+    <delete id="delete" parameterType="int">
         DELETE FROM CourseInfo WHERE CID=#{id}
     </delete>
 </mapper>

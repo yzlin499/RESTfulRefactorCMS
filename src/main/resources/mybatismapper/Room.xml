@@ -11,28 +11,28 @@
         <result column="RUseFor" property="UseFor"/>
     </resultMap>
 
-    <select id="selectRoom" parameterType="FakerMap" resultMap="RoomInfoMap">
+    <select id="select" parameterType="FakerMap" resultMap="RoomInfoMap">
         SELECT * FROM RoomInfo WHERE 1=1
         <foreach collection="oneMap" index="key" item="item" open="AND" separator="AND">
             ${key} = #{item}
         </foreach>
     </select>
 
-    <select id="selectRoomByID" parameterType="int" resultMap="RoomInfoMap">
+    <select id="selectByID" parameterType="int" resultMap="RoomInfoMap">
         SELECT * FROM RoomInfo WHERE RID=#{id}
     </select>
-    
-    <select id="createRoom" parameterType="RoomInfo" resultType="int">
+
+    <select id="create" parameterType="RoomInfo" resultType="int">
         EXEC  F_CreateRoom @RoomName=#{RoomName},@BuildingName=#{BuildingName},@MaxStudentCount=#{MaxStudentCount}
         <if test="UseFor!=null">,@UseFor=#{UseFor}</if>
     </select>
 
-    <select id="updateRoom" parameterType="RoomInfo">
+    <select id="update" parameterType="RoomInfo">
         EXEC F_ModifyRoom @RID=#{RoomID},@RoomName=#{RoomName},@BuildingName=#{BuildingName},
                           @MaxStudentCount=#{MaxStudentCount},@UseFor=#{UseFor}
     </select>
 
-    <delete id="DeleteRoom" parameterType="int">
+    <delete id="delete" parameterType="int">
         DELETE FROM RoomInfo WHERE RID=#{id}
     </delete>
 

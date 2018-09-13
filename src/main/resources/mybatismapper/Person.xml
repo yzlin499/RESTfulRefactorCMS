@@ -16,32 +16,42 @@
         <result column="PSex" property="sex"/>
     </resultMap>
 
-    <select id="selectBuilding" parameterType="FakerMap" resultMap="BuildingInfoMap">
+    <select id="select" parameterType="FakerMap" resultMap="PersonInfoMap">
         SELECT * FROM PersonInfo WHERE 1=1
         <foreach collection="oneMap" index="key" item="item" open="AND" separator="AND">
             ${key} = #{item}
         </foreach>
     </select>
 
-    <select id="selectBuildingByID" parameterType="int" resultMap="BuildingInfoMap">
-        SELECT * FROM BuildingInfo WHERE BID=#{id}
+    <select id="selectByID" parameterType="int" resultMap="PersonInfoMap">
+        SELECT *
+        FROM PersonInfo
+        WHERE PID = #{id}
     </select>
 
-    <insert id="createBuilding" keyProperty="BuildingID" useGeneratedKeys="true" parameterType="BuildingInfo">
-        INSERT INTO BuildingInfo (BName, BUUID) VALUES (#{BuildingName},#{BuildingUUID})
+    <insert id="create" keyProperty="PersonID" useGeneratedKeys="true" parameterType="PersonInfo">
+        INSERT INTO PersonInfo (PGroup, PUserName, PPassword, PCtrlLevel, PEmail, PName, PTel, PClass, PSex)
+        VALUES
+            (#{PersonGroup}, #{UserName}, #{PassWord}, #{PersonCtrlLevel}, #{EMail}, #{Name}, #{TelPhone}, #{ClassName},
+             #{sex})
     </insert>
 
-    <update id="updateBuilding" parameterType="BuildingInfo">
-        UPDATE BuildingInfo
+    <update id="update" parameterType="PersonInfo">
+        UPDATE PersonInfo
         <set>
-            <if test="BuildingName!=null">BName=#{BuildingName},</if>
-            <if test="BuildingUUID!=null">BUUID=#{BuildingUUID}</if>
+            <if test="ClassName!=null">PClass=#{ClassName},</if>
+            <if test="EMail!=null">PEmail=#{EMail},</if>
+            <if test="Name!=null">PName=#{Name},</if>
+            <if test="sex!=null">PSex=#{sex},</if>
+            <if test="TelPhone!=null">PTel=#{TelPhone},</if>
+            <if test="UserName!=null">PUserName=#{UserName}</if>
         </set>
-        WHERE BID=#{BuildingID}
+        WHERE PID=#{BuildingID}
     </update>
 
-    <delete id="deleteBuilding" parameterType="int">
-        DELETE FROM BuildingInfo WHERE BID=#{id}
+    <delete id="delete" parameterType="int">
+        DELETE FROM PersonInfo
+        WHERE PID = #{id}
     </delete>
 
 </mapper>

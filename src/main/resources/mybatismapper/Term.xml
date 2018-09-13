@@ -9,12 +9,12 @@
         <result column="TStartDate" property="StartDate"/>
     </resultMap>
 
-    <select id="createTerm" parameterType="TermInfo" resultType="int">
+    <select id="create" parameterType="TermInfo" resultType="int">
         EXEC F_CreateTerm @TermName=#{TermName}
         <if test="StartDate!=null">,@StartDate=#{StartDate}</if>
     </select>
 
-    <update id="updateTerm" parameterType="TermInfo">
+    <update id="update" parameterType="TermInfo">
         UPDATE TermInfo
         <set>
             <if test="TermID!=-1">TID=#{TermID},</if>
@@ -24,18 +24,18 @@
         WHERE TID=#{TermID}
     </update>
 
-    <delete id="deleteTerm" parameterType="int">
+    <delete id="delete" parameterType="int">
         DELETE FROM TermInfo WHERE TID=#{id}
     </delete>
 
-    <select id="selectTerm" parameterType="FakerMap" resultMap="TermInfoMap">
+    <select id="select" parameterType="FakerMap" resultMap="TermInfoMap">
         SELECT * FROM TermInfo WHERE 1=1
         <foreach collection="oneMap" index="key" item="item" open="AND" separator="AND">
             ${key} = #{item}
         </foreach>
     </select>
 
-    <select id="selectTermByID" parameterType="int" resultMap="TermInfoMap">
+    <select id="selectByID" parameterType="int" resultMap="TermInfoMap">
         SELECT * FROM TermInfo WHERE TID=#{id}
     </select>
 

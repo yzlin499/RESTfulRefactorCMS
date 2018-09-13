@@ -30,28 +30,30 @@ public class CourseService implements BaseService{
     @Override
     public Object index(Map<String, Object> formData) {
         formData.keySet().retainAll(tableCourse);
-        return courseDAO.selectCourse(new FakerMap(formData));
+        return courseDAO.select(new FakerMap(formData));
     }
 
     @Override
     public Object save(JSON jsonData) {
-        return courseDAO.createCourse(jsonData.toJavaObject(CourseInfo.class));
+        return courseDAO.create(jsonData.toJavaObject(CourseInfo.class));
     }
 
     @Override
     public Object update(JSON jsonData, String id) {
-        courseDAO.updateCourse(jsonData.toJavaObject(CourseInfo.class),id);
+        CourseInfo courseInfo = jsonData.toJavaObject(CourseInfo.class);
+        courseInfo.setCourseID(Integer.parseInt(id));
+        courseDAO.update(courseInfo);
         return id;
     }
 
     @Override
     public Object delete(JSON jsonData, String id) {
-        return courseDAO.deleteCourse(id);
+        return courseDAO.delete(Integer.parseInt(id));
     }
 
     @Override
     public Object read(Map<String, Object> formData, String id) {
-        return courseDAO.selectCourseByID(Integer.parseInt(id));
+        return courseDAO.selectByID(Integer.parseInt(id));
     }
 
 }

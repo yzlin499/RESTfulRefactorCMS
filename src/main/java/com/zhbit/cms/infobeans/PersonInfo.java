@@ -12,7 +12,7 @@ public class PersonInfo {
     private String Name;
     private String TelPhone;
     private String ClassName;
-    private Boolean sex;
+    private Boolean sex = null;
 
     @JSONField(name="person_id")
     public int getPersonID() {

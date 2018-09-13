@@ -12,7 +12,7 @@ public class CourseInfo implements BasicInterface {
     private int ClassWeek=-1;
     private int ClassTime=-1;
     private String Teacher;
-    private int RID=-1;
+    private int RoomID = -1;
     private int StuCount=0;
     private int CurTermID=0;
     private int CourseID=-1;
@@ -22,7 +22,7 @@ public class CourseInfo implements BasicInterface {
     @Override
     public boolean isNotNull(){
         return (CourseName!=null && ClassName!=null && Week!=-1 && ClassWeek!=-1 && ClassTime!=-1
-                && Teacher!=null && RID!=-1 && StuCount!=-1 && CurTermID!=-1 && CourseID!=-1);
+                && Teacher != null && RoomID != -1 && StuCount != -1 && CurTermID != -1 && CourseID != -1);
     }
 
     @JSONField(name = "course_id")
@@ -115,14 +115,14 @@ public class CourseInfo implements BasicInterface {
         CurTermID = curTermID;
     }
 
-    @JSONField(name = "rid")
-    public int getRID() {
-        return RID;
+    @JSONField(name = "room_id")
+    public int getRoomID() {
+        return RoomID;
     }
 
-    @JSONField(name = "rid")
-    public void setRID(int RID) {
-        this.RID = RID;
+    @JSONField(name = "room_id")
+    public void setRoomID(int roomID) {
+        this.RoomID = roomID;
     }
 
 }

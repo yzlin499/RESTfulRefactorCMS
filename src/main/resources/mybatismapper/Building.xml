@@ -9,22 +9,22 @@
         <result column="BUUID" property="BuildingUUID"/>
     </resultMap>
 
-    <select id="selectBuilding" parameterType="FakerMap" resultMap="BuildingInfoMap">
+    <select id="select" parameterType="FakerMap" resultMap="BuildingInfoMap">
         SELECT * FROM BuildingInfo WHERE 1=1
         <foreach collection="oneMap" index="key" item="item" open="AND" separator="AND">
             ${key} = #{item}
         </foreach>
     </select>
 
-    <select id="selectBuildingByID" parameterType="int" resultMap="BuildingInfoMap">
+    <select id="selectByID" parameterType="int" resultMap="BuildingInfoMap">
         SELECT * FROM BuildingInfo WHERE BID=#{id}
     </select>
 
-    <insert id="createBuilding" keyProperty="BuildingID" useGeneratedKeys="true" parameterType="BuildingInfo">
+    <insert id="create" keyProperty="BuildingID" useGeneratedKeys="true" parameterType="BuildingInfo">
         INSERT INTO BuildingInfo (BName, BUUID) VALUES (#{BuildingName},#{BuildingUUID})
     </insert>
 
-    <update id="updateBuilding" parameterType="BuildingInfo">
+    <update id="update" parameterType="BuildingInfo">
         UPDATE BuildingInfo
         <set>
             <if test="BuildingName!=null">BName=#{BuildingName},</if>
@@ -33,7 +33,7 @@
         WHERE BID=#{BuildingID}
     </update>
 
-    <delete id="deleteBuilding" parameterType="int">
+    <delete id="delete" parameterType="int">
         DELETE FROM BuildingInfo WHERE BID=#{id}
     </delete>
 

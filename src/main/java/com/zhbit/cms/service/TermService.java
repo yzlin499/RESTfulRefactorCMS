@@ -30,29 +30,29 @@ public class TermService implements BaseService{
     @Override
     public Object index(Map<String, Object> formData) {
         formData.keySet().retainAll(tableCourse);
-        return termDAO.selectTerm(new FakerMap(formData));
+        return termDAO.select(new FakerMap(formData));
     }
 
     @Override
     public Object save(JSON jsonData) {
-        return termDAO.createTerm(jsonData.toJavaObject(TermInfo.class));
+        return termDAO.create(jsonData.toJavaObject(TermInfo.class));
     }
 
     @Override
     public Object update(JSON jsonData, String id) {
         TermInfo termInfo=jsonData.toJavaObject(TermInfo.class);
         termInfo.setTermID(Integer.parseInt(id));
-        termDAO.updateTerm(termInfo);
+        termDAO.update(termInfo);
         return id;
     }
 
     @Override
     public Object delete(JSON jsonData, String id) {
-        return termDAO.deleteTerm(Integer.parseInt(id));
+        return termDAO.delete(Integer.parseInt(id));
     }
 
     @Override
     public Object read(Map<String, Object> formData, String id) {
-        return termDAO.selectTermByID(Integer.parseInt(id));
+        return termDAO.selectByID(Integer.parseInt(id));
     }
 }

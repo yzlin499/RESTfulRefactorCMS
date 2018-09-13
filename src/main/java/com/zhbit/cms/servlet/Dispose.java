@@ -54,5 +54,4 @@ public class Dispose {
         return context.getBean(resource,BaseService.class).read(params,id);
     }
 
-
 }

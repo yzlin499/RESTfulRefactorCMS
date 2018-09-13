@@ -31,29 +31,29 @@ public class RoomService implements BaseService {
     @Override
     public Object index(Map<String, Object> formData) {
         formData.keySet().retainAll(tableCourse);
-        return roomDAO.selectRoom(new FakerMap(formData));
+        return roomDAO.select(new FakerMap(formData));
     }
 
     @Override
     public Object save(JSON jsonData) {
-        return roomDAO.createRoom(jsonData.toJavaObject(RoomInfo.class));
+        return roomDAO.create(jsonData.toJavaObject(RoomInfo.class));
     }
 
     @Override
     public Object update(JSON jsonData, String id) {
         RoomInfo roomInfo=jsonData.toJavaObject(RoomInfo.class);
         roomInfo.setRoomID(Integer.parseInt(id));
-        roomDAO.updateRoom(roomInfo);
+        roomDAO.update(roomInfo);
         return id;
     }
 
     @Override
     public Object delete(JSON jsonData, String id) {
-        return roomDAO.deleteRoom(Integer.parseInt(id));
+        return roomDAO.delete(Integer.parseInt(id));
     }
 
     @Override
     public Object read(Map<String, Object> formData, String id) {
-        return roomDAO.selectRoomByID(Integer.parseInt(id));
+        return roomDAO.selectByID(Integer.parseInt(id));
     }
 }
