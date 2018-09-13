@@ -4,7 +4,7 @@ import com.zhbit.cms.infobeans.FakerMap;
 
 import java.util.List;
 
-interface BaseDAO<T> {
+public interface BaseDAO<T> {
     List<T> select(FakerMap fakerMap);
 
     T selectByID(int id);
