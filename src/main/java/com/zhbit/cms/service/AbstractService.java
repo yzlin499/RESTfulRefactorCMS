@@ -14,7 +14,7 @@ import java.util.Map;
 abstract class AbstractService<DAO extends BaseDAO<T>, T> implements BaseService {
 
     private List<String> tableField;
-    private DAO dao;
+    protected DAO dao;
     private Class<T> genericClass = getGenericClass();
 
 

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DisposeAOP {
 
-    @Pointcut("execution(* com.zhbit.cms.servlet.Dispose.*(..)) && !execution(* com.zhbit.cms.servlet.Dispose.setEnvironment())")
+    @Pointcut("execution(* com.zhbit.cms.servlet.CommonDispose.*(..)) && !execution(* com.zhbit.cms.servlet.CommonDispose.setEnvironment())")
     public void pointCut() {
     }
 

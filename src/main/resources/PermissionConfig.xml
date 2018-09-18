@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 本文件是一个接口的权限配置文件，本文件需要手动编辑，对此配置文件的格式规定如下： -->
+<!DOCTYPE Permission [<!ELEMENT Permission (Interface+)><!ELEMENT Interface ((UserGroup+),(Interface*))>
+        <!ELEMENT UserGroup (#PCDATA)><!ATTLIST Interface name CDATA #REQUIRED><!ATTLIST UserGroup name CDATA #REQUIRED>
+        <!ATTLIST UserGroup minctrllevel CDATA #REQUIRED>]>
+<Permission>
+
+    <Interface name="/wechat/main">
+        <UserGroup name="0" minctrllevel="0"/>
+    </Interface>
+    <Interface name="/dist.*">
+        <UserGroup name="0" minctrllevel="0"/>
+    </Interface>
+    <Interface name="/test.*">
+        <UserGroup name="0" minctrllevel="0"/>
+    </Interface>
+    <Interface name="/user/register">
+        <UserGroup name="0" minctrllevel="0"/>
+    </Interface>
+    <Interface name="/user/login">
+        <UserGroup name="0" minctrllevel="0"/>
+    </Interface>
+    <Interface name="/user/logout">
+        <UserGroup name="0" minctrllevel="1"/>
+    </Interface>
+    <Interface name="/identifyingcode">
+        <UserGroup name="0" minctrllevel="0"/>
+    </Interface>
+    <Interface name="/resetpassword">
+        <UserGroup name="0" minctrllevel="0"/>
+    </Interface>
+    <Interface name="/verifycheckinout">
+        <UserGroup name="0" minctrllevel="0"/>
+    </Interface>
+    <Interface name="/setbuuid">
+        <UserGroup name="0" minctrllevel="10"/>
+    </Interface>
+    <Interface name="/resetcache">
+        <UserGroup name="0" minctrllevel="10"/>
+    </Interface>
+    <Interface name="/getcheckinoutverifycode">
+        <UserGroup name="0" minctrllevel="1"/>
+    </Interface>
+
+
+    <Interface name="/dispose/.*">
+        <!-- 隐式匹配的接口有：/dispose/[new|modify|delete]/[room|course|term|duty|sign]  -->
+        <UserGroup name="0" minctrllevel="9"/>
+        <Interface name="/dispose/.*/duty">
+            <UserGroup name="0" minctrllevel="6"/>
+            <Interface name="/dispose/delete/duty">
+                <UserGroup name="0" minctrllevel="9"/>
+            </Interface>
+        </Interface>
+        <Interface name="/dispose/.*/sign">
+            <UserGroup name="0" minctrllevel="6"/>
+            <Interface name="/dispose/delete/sign">
+                <UserGroup name="0" minctrllevel="9"/>
+            </Interface>
+        </Interface>
+    </Interface>
+    <Interface name="/select/.*">
+        <!-- 隐式匹配的接口有：/select/[room|term|building|person|signinfo|duty] -->
+        <UserGroup name="0" minctrllevel="1"/>
+        <Interface name="/select/globalsetting">
+            <!-- 读取全局配置信息接口 -->
+            <UserGroup name="0" minctrllevel="10"/>
+        </Interface>
+    </Interface>
+    <Interface name="/filter/.*">
+        <!-- 隐式匹配的接口有：/filter/[room|course] -->
+        <UserGroup name="0" minctrllevel="1"/>
+
+    </Interface>
+    <Interface name="/query/.*">
+        <!-- 隐式匹配的接口有：/query/[room] -->
+        <UserGroup name="0" minctrllevel="1"/>
+    </Interface>
+</Permission>

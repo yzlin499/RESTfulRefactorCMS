@@ -36,6 +36,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-oxm:5.0.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-slf4j-impl:2.11.0" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.8.0-alpha2" />
+          <element id="library" level="project" name="Maven: org.dom4j:dom4j:2.1.1" />
         </element>
       </element>
     </root>

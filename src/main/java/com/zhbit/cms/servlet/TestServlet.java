@@ -1,12 +1,15 @@
 package com.zhbit.cms.servlet;
 
-import com.zhbit.cms.dao.TermDAO;
-import com.zhbit.cms.dao.ToolsDAO;
+import com.zhbit.cms.dao.CourseDAO;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -15,10 +18,14 @@ import java.util.Map;
 public class TestServlet {
 
     @Autowired
-    public TermDAO termDAO;
+    public CourseDAO termDAO;
+
+
 
     @RequestMapping(method = RequestMethod.GET)
     public Object test(@RequestParam Map<String, Object> params){
+        Logger logger = LogManager.getLogger(TestServlet.class);
+        logger.error("adsdasdasdsadas");
         return null;
     }
 
