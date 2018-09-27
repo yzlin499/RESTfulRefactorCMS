@@ -1,51 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="warn">
     <Properties>
-        <Property name="LOG_HOME">${catalina.home}/logs/cms</Property>
+        <Property name="LOG_HOME">${sys:catalina.home}/logs/cms</Property>
     </Properties>
 
     <appenders>
 
         <Console name="Console" target="SYSTEM_OUT">
             <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5p %c{1}:%L - %m%n"/>
         </Console>
 
         <Console name="ConsoleERR" target="SYSTEM_ERR">
             <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5p %c{1}:%L - %m%n"/>
         </Console>
 
-
-        <RollingFile name="RollingFileInfo" fileName="${LOG_HOME}/info.log"
+        <RollingFile name="RollingFileInfo"
+                     fileName="${LOG_HOME}/info.log"
                      filePattern="${LOG_HOME}/info-%d{yyyy-MM-dd}-%i.log">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
-
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5p %c{1}:%L - %m%n"/>
+            <Filters>
+                <ThresholdFilter level="INFO"/>
+                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
             <Policies>
-
-                <SizeBasedTriggeringPolicy size="5 MB"/>
-
+                <SizeBasedTriggeringPolicy size="10 MB"/>
             </Policies>
-
         </RollingFile>
 
         <RollingFile name="RollingFileWarn"
                      fileName="${LOG_HOME}/warn.log"
                      filePattern="${LOG_HOME}/warn-%d{yyyy-MM-dd}-%i.log">
-            <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
+            <Filters>
+                <ThresholdFilter level="WARN"/>
+                <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5p %c{1}:%L - %m%n"/>
             <Policies>
-                <SizeBasedTriggeringPolicy size="1 MB"/>
+                <SizeBasedTriggeringPolicy size="2 MB"/>
             </Policies>
         </RollingFile>
 
         <RollingFile name="RollingFileError"
-                     fileName="${sys:user.home}/logs/error.log"
+                     fileName="${LOG_HOME}/error.log"
                      filePattern="${LOG_HOME}/error-%d{yyyy-MM-dd}-%i.log">
 
             <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
 
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5p %c{1}:%L - %m%n"/>
 
             <Policies>
                 <TimeBasedTriggeringPolicy/>
@@ -57,7 +60,7 @@
     </appenders>
 
 
-    <Loggers>
+    <loggers>
         <Root level="all">
             <appender-ref ref="Console"/>
             <appender-ref ref="ConsoleERR"/>
@@ -70,5 +73,5 @@
         <logger name="org.springframework.context" level="info"/>
         <logger name="org.springframework.web" level="info"/>
         <logger name="org.apache.http" level="info"/>
-    </Loggers>
+    </loggers>
 </Configuration>

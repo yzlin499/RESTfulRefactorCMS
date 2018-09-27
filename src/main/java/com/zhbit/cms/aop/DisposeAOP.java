@@ -8,13 +8,14 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
 public class DisposeAOP {
 
-    @Pointcut("execution(* com.zhbit.cms.servlet.CommonDispose.*(..)) && !execution(* com.zhbit.cms.servlet.CommonDispose.setEnvironment())")
+    @Pointcut("execution(* com.zhbit.cms.servlet.CommonDispose.*(..)) && !execution(* com.zhbit.cms.servlet.CommonDispose.setApplicationContext())")
     public void pointCut() {
     }
 
@@ -35,11 +36,17 @@ public class DisposeAOP {
             return new JSONObject()
                     .fluentPut(StatusCode.STATUS, StatusCode.PARAM_ERROR)
                     .fluentPut(StatusCode.ERROR, "参数转换错误");
+        } catch (NoSuchBeanDefinitionException throwable) {
+            return new JSONObject()
+                    .fluentPut(StatusCode.STATUS, StatusCode.NO_FIND)
+                    .fluentPut(StatusCode.ERROR, "不存在资源");
         } catch (Throwable throwable) {
             throwable.printStackTrace();
             return new JSONObject()
                     .fluentPut(StatusCode.STATUS, StatusCode.UNKNOWN_FAIL)
                     .fluentPut(StatusCode.ERROR, throwable.getMessage());
         }
+
+
     }
 }

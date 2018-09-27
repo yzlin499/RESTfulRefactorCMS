@@ -12,7 +12,7 @@
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
         <property name="interceptors">
             <list>
-                <ref bean="permissions"/>
+                <!--<ref bean="permissions"/>-->
             </list>
         </property>
     </bean>

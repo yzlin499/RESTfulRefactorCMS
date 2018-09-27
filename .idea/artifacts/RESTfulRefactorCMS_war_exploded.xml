@@ -9,7 +9,6 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.47" />
-          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.11.0" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.11.0" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.6" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.6.RELEASE" />
@@ -35,8 +34,10 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-context-support:5.0.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-oxm:5.0.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-slf4j-impl:2.11.0" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.8.0-alpha2" />
           <element id="library" level="project" name="Maven: org.dom4j:dom4j:2.1.1" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-web:2.11.1" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.11.1" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
         </element>
       </element>
     </root>
