@@ -2,18 +2,19 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:c="http://www.springframework.org/schema/c"
        xmlns:context="http://www.springframework.org/schema/context" xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:component-scan base-package="com.zhbit.cms.interceptor"/>
 
     <bean class="com.zhbit.cms.frame.PermissionsParsing"
           c:configLocation="classpath:PermissionConfig.xml"/>
 
-    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
-        <property name="interceptors">
-            <list>
-                <!--<ref bean="permissions"/>-->
-            </list>
-        </property>
-    </bean>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/*"/>
+            <ref bean="allHeader"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>

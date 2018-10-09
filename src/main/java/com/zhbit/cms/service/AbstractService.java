@@ -13,7 +13,7 @@ import java.util.Map;
 
 abstract class AbstractService<DAO extends BaseDAO<T>, T> implements BaseService {
 
-    private List<String> tableField;
+    protected List<String> tableField;
     protected DAO dao;
     private Class<T> genericClass = getGenericClass();
 
@@ -29,9 +29,18 @@ abstract class AbstractService<DAO extends BaseDAO<T>, T> implements BaseService
     }
 
     @Override
-    public Object index(Map<String, Object> formData) {
+    public Object index(Map<String, String> formData) {
+        String order = formData.getOrDefault("_order", "");
+        order = tableField.contains(order) ? order : null;
+        int limit = Integer.parseInt(formData.getOrDefault("_limit", "20"));
+        int page = Integer.parseInt(formData.getOrDefault("_page", "1"));
+
         formData.keySet().retainAll(tableField);
-        return dao.select(new FakerMap(formData));
+        FakerMap fakerMap = new FakerMap(formData);
+        fakerMap.setOrder(order);
+        fakerMap.setLimit(limit);
+        fakerMap.setPage(page);
+        return dao.select(fakerMap);
     }
 
     @Override

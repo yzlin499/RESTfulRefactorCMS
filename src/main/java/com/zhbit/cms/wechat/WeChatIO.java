@@ -1,59 +1,62 @@
 package com.zhbit.cms.wechat;
 
 import com.zhbit.cms.infobeans.wechat.WCInfo;
+import com.zhbit.cms.infobeans.wechat.WCText;
 import com.zhbit.cms.tools.Tools;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import org.springframework.cglib.beans.BeanMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class WeChatIO<T extends WCInfo> {
-    private static final SAXReader saxReader = new SAXReader();
-    private static final WeChatFromIDPool idPool = WeChatFromIDPool.getInstance();
+    private static final Logger logger = LogManager.getLogger(WeChatIO.class);
+    private static final SAXReader SAX_READER = new SAXReader();
+    private static final WeChatFromIDPool ID_POOL = WeChatFromIDPool.getInstance();
     private WCInfo wcInfo;
     private PrintWriter printWriter;
     private boolean isNotClose = true;
 
-    public WeChatIO(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            init(Tools.getResultString(request));
-            response.setCharacterEncoding("UTF-8");
-            printWriter = response.getWriter();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Logger logger = LogManager.getLogger(WeChatIO.class);
-            logger.error(e);
-        }
-    }
-
-    public WeChatIO(String inputXml, PrintWriter printWriter) {
+    public WeChatIO(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String inputXml = Tools.getResultString(request);
         try {
             init(inputXml);
-            this.printWriter = printWriter;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (UnsupportedEncodingException |
+                DocumentException |
+                IllegalAccessException |
+                ClassNotFoundException |
+                InstantiationException e) {
+            logger.warn(e);
+            logger.warn(inputXml);
+            replyText("服务器发生未知错误");
+            close();
         }
+        response.setCharacterEncoding("UTF-8");
+        this.printWriter = response.getWriter();
     }
 
-    private void init(String inputXml) throws Exception {
-        //TODO:大规模需要修复
-        Element element = saxReader.read(new ByteArrayInputStream(inputXml.getBytes("UTF-8"))).getRootElement();
-        Map<String, String> map = element.elements().stream().collect(Collectors.toMap(Element::getName, Element::getText));
-
-        String type = map.get("MsgType");
-        Object o = Class.forName("com.zhbit.cms.infobeans.wechat." +
-                "WC" + (char) (type.charAt(0) & 0xDF) + type.substring(1))
+    private void init(String inputXml) throws UnsupportedEncodingException, DocumentException, IllegalAccessException, InstantiationException, ClassNotFoundException {
+        Element element = SAX_READER.read(new ByteArrayInputStream(inputXml.getBytes("UTF-8"))).getRootElement();
+        String type = element.elementText("MsgType");
+        wcInfo = (WCText) Class.forName("com.zhbit.cms.infobeans.wechat.WC" + Tools.firstWordUpCase(type))
                 .newInstance();
-        BeanMap.create(o).putAll(map);
-        wcInfo = (WCInfo) o;
+        element.elements().forEach(i -> {
+            try {
+                BeanUtils.setProperty(wcInfo, Tools.firstWordLowerCase(i.getName()), i.getText());
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                logger.warn(e);
+            }
+        });
     }
 
     public T getInfo() {
@@ -90,15 +93,15 @@ public class WeChatIO<T extends WCInfo> {
     }
 
     public Object setAttribute(Object key, Object value) {
-        return idPool.setAttribute(wcInfo.getFromUserName(), key, value);
+        return ID_POOL.setAttribute(wcInfo.getFromUserName(), key, value);
     }
 
     public Object getAttribute(Object key) {
-        return idPool.getAttribute(getID(), key);
+        return ID_POOL.getAttribute(getID(), key);
     }
 
     public Map<Object, Object> getAttributeMap() {
-        return idPool.getAttributeMap(wcInfo.getFromUserName());
+        return ID_POOL.getAttributeMap(wcInfo.getFromUserName());
     }
 
     public String getID() {
@@ -106,10 +109,10 @@ public class WeChatIO<T extends WCInfo> {
     }
 
     public Object removeAttribute(Object key) {
-        return idPool.removeAttribute(wcInfo.getFromUserName(), key);
+        return ID_POOL.removeAttribute(wcInfo.getFromUserName(), key);
     }
 
     public void removeID() {
-        idPool.removeID(wcInfo.getFromUserName());
+        ID_POOL.removeID(wcInfo.getFromUserName());
     }
 }

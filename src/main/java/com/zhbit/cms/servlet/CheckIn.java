@@ -37,13 +37,13 @@ public class CheckIn {
     private static String encode(String buuid, String time) {
         byte[] bytes = buuid.getBytes();
         byte[] timeBytes = time.getBytes();
-        byte[] T = new byte[bytes.length + timeBytes.length];
+        byte[] bytes1 = new byte[bytes.length + timeBytes.length];
         for (int i = 0; i < bytes.length; i++) {
-            T[i] = (byte) ((Character.getNumericValue(bytes[i]) + timeBytes[i % 13] - 0x30) & 0xf);
-            T[i] = (byte) (T[i] > 10 ? T[i] + 87 : T[i] + 0x30);
+            bytes1[i] = (byte) ((Character.getNumericValue(bytes[i]) + timeBytes[i % 13] - 0x30) & 0xf);
+            bytes1[i] = (byte) (bytes1[i] > 10 ? bytes1[i] + 87 : bytes1[i] + 0x30);
         }
-        System.arraycopy(timeBytes, 0, T, bytes.length, timeBytes.length);
-        return encoder.encode(T);
+        System.arraycopy(timeBytes, 0, bytes1, bytes.length, timeBytes.length);
+        return encoder.encode(bytes1);
     }
 
     /**

@@ -1,7 +1,5 @@
 package com.zhbit.cms.servlet;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,11 +14,16 @@ import java.util.Map;
 public class TestServlet {
 
     @RequestMapping(method = RequestMethod.GET)
-    public Object test(@RequestParam Map<String, Object> params){
-        Logger logger = LogManager.getLogger(TestServlet.class);
-        logger.warn("adsdasdasdsadas");
-        logger.error("adsdasdasdsadas");
-        return null;
+    public Object test(@RequestParam Map<String, String> params) {
+        StringBuilder a = new StringBuilder();
+        params.forEach((k, v) -> {
+            a.append(k)
+                    .append("....")
+                    .append(v)
+                    .append("....")
+                    .append(v.getClass());
+        });
+        return a.toString();
     }
 
     @RequestMapping(method = RequestMethod.POST)

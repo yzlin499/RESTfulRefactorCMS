@@ -6,7 +6,7 @@ import java.util.Map;
 
 public interface BaseService {
 
-    Object index(Map<String, Object> formData);
+    Object index(Map<String, String> formData);
 
     Object save(JSON jsonData);
 

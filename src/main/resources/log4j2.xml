@@ -38,6 +38,7 @@
             </Filters>
             <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5p %c{1}:%L - %m%n"/>
             <Policies>
+                <TimeBasedTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="2 MB"/>
             </Policies>
         </RollingFile>
@@ -51,7 +52,6 @@
             <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5p %c{1}:%L - %m%n"/>
 
             <Policies>
-                <TimeBasedTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="1 MB"/>
             </Policies>
 
@@ -68,10 +68,10 @@
             <appender-ref ref="RollingFileWarn"/>
             <appender-ref ref="RollingFileError"/>
         </Root>
-        <logger name="org.springframework.core" level="info"/>
-        <logger name="org.springframework.beans" level="info"/>
-        <logger name="org.springframework.context" level="info"/>
-        <logger name="org.springframework.web" level="info"/>
-        <logger name="org.apache.http" level="info"/>
+        <logger name="org.springframework.core" level="info" additivity="true"/>
+        <logger name="org.springframework.beans" level="info" additivity="true"/>
+        <logger name="org.springframework.context" level="info" additivity="true"/>
+        <logger name="org.springframework.web" level="info" additivity="true"/>
+        <logger name="org.apache.http" level="info" additivity="true"/>
     </loggers>
 </Configuration>

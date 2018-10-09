@@ -121,4 +121,16 @@ public final class Tools {
                 .fluentPut(StatusCode.MESSAGE, message);
     }
 
+    public static String firstWordLowerCase(String word) {
+        byte[] key = word.getBytes();
+        key[0] |= 32;
+        return new String(key);
+    }
+
+    public static String firstWordUpCase(String word) {
+        byte[] key = word.getBytes();
+        key[0] &= 0xDF;
+        return new String(key);
+    }
+
 }

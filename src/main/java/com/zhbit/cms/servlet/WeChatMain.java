@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/wechat")
@@ -30,7 +31,7 @@ public class WeChatMain {
     }
 
     @RequestMapping("/main")
-    public void doWeChatMain(HttpServletRequest req, HttpServletResponse resp) {
+    public void doWeChatMain(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         WeChatIO weChatIO = new WeChatIO(req, resp);
         weChatEventPool.newMsg(weChatIO);
     }

@@ -16,6 +16,8 @@
         <foreach collection="oneMap" index="key" item="item" open="AND" separator="AND">
             ${key} = #{item}
         </foreach>
+        ORDER BY ${order}
+        offset #{limit}*(#{page}-1) rows fetch next #{limit} rows only
     </select>
 
     <select id="selectByID" parameterType="int" resultMap="RoomInfoMap">

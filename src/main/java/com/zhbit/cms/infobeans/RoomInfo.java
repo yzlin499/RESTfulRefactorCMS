@@ -55,12 +55,12 @@ public class RoomInfo implements BasicInterface {
         MaxStudentCount = maxStudentCount;
     }
 
-    @JSONField(name = "user_for")
+    @JSONField(name = "use_for")
     public String getUseFor() {
         return UseFor;
     }
 
-    @JSONField(name = "user_for")
+    @JSONField(name = "use_for")
     public void setUseFor(String useFor) {
         UseFor = useFor;
     }

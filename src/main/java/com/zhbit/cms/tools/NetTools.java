@@ -88,11 +88,7 @@ public class NetTools {
      * @return 数据
      */
     public static String sendPost(String url, String param, Map<String, String> m) {
-        return sendPost(url, param, conn -> {
-            for (String key : m.keySet()) {
-                conn.setRequestProperty(key, m.get(key));
-            }
-        });
+        return sendPost(url, param, conn -> m.forEach(conn::setRequestProperty));
     }
 
     /**

@@ -24,7 +24,7 @@ public class CommonDispose implements ApplicationContextAware {
 
     @RequestMapping(method = RequestMethod.GET)
     public Object index(@PathVariable("resource")String resource,
-                        @RequestParam Map<String, Object> params){
+                        @RequestParam Map<String, String> params) {
 
         return context.getBean(resource,BaseService.class).index(params);
     }

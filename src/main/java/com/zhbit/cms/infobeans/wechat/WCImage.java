@@ -19,4 +19,6 @@ public class WCImage extends WCInfo {
     public void setMediaId(String mediaId) {
         this.mediaId = mediaId;
     }
+
+
 }
